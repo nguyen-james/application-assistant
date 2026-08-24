@@ -1,0 +1,27 @@
+{
+  "first_name": "",
+  "last_name": "",
+  "full_name": "",
+
+  "email": "",
+  "phone_num": "",
+
+  "address": "",
+  "city": "",
+  "state": "",
+  "zipcode": "",
+  "country": "United States",
+
+  "school": "San Jose State University",
+  "degree": "Bachelor of Science",
+  "major": "Computer Science",
+  "gpa": "3.99",
+
+  "job_1_desc": "",
+
+  "job_2_desc": "",
+
+  "linkedin": "",
+  "portfolio": "",
+  "github": ""
+}
