@@ -1,7 +1,8 @@
-from hotkeys import initialize_hotkeys
+from gui import run_app
+
 
 def main():
-   initialize_hotkeys()
+    run_app()
 
 
 if __name__ == "__main__":
