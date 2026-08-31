@@ -52,11 +52,14 @@ class ApplicationAssistantApp(ctk.CTk):
         self._entries = {}
         self._paste_after_id = None
         self._countdown_after_id = None
+        self._always_on_top = True
 
         self._build_header()
         self._build_controls()
         self._build_fields()
         self._build_footer()
+
+        self.attributes("-topmost", True)
 
         set_status_callback(self._on_autofill_status)
         initialize_hotkeys(blocking=False)
@@ -135,6 +138,20 @@ class ApplicationAssistantApp(ctk.CTk):
             anchor="w",
         )
         hint.pack(side="left", padx=(16, 0))
+
+        self.pin_switch = ctk.CTkSwitch(
+            inner,
+            text="Always on top",
+            font=ctk.CTkFont(family="Segoe UI", size=12),
+            text_color=COLORS["muted"],
+            progress_color=COLORS["accent"],
+            button_color=COLORS["text"],
+            button_hover_color=COLORS["accent_hover"],
+            fg_color=COLORS["border"],
+            command=self._toggle_always_on_top,
+        )
+        self.pin_switch.select()
+        self.pin_switch.pack(side="right", padx=(0, 12))
 
         self.save_btn = ctk.CTkButton(
             inner,
@@ -315,6 +332,10 @@ class ApplicationAssistantApp(ctk.CTk):
 
     def _set_feedback(self, message, color=None):
         self.feedback.configure(text=message, text_color=color or COLORS["accent"])
+
+    def _toggle_always_on_top(self):
+        self._always_on_top = bool(self.pin_switch.get())
+        self.attributes("-topmost", self._always_on_top)
 
     def _toggle_autofill(self):
         # Persist current edits so hotkeys use fresh values
