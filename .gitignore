@@ -1,5 +1,7 @@
-
 data.json
 __pycache__/
 
 .venv/
+build/
+dist/
+*.spec

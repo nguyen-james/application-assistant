@@ -1,10 +1,26 @@
 import keyboard
 import pyperclip
 import json
+import sys
 from pathlib import Path
 
-DATA_PATH = Path(__file__).resolve().parent / "data.json"
-EXAMPLE_PATH = Path(__file__).resolve().parent / "example-data.json"
+
+def _app_dir() -> Path:
+    """Writable directory next to the exe (or the project root when running from source)."""
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent
+
+
+def _resource_dir() -> Path:
+    """Bundled resources (PyInstaller extract dir) or project root."""
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS)
+    return Path(__file__).resolve().parent
+
+
+DATA_PATH = _app_dir() / "data.json"
+EXAMPLE_PATH = _resource_dir() / "example-data.json"
 
 autofill_mode = False
 _status_callback = None
