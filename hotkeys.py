@@ -46,6 +46,7 @@ fields = {
     "i": "linkedin",
     "w": "portfolio",
     "h": "github",
+    "j": "password"
 }
 
 FIELD_HOTKEY = {field: key for key, field in fields.items()}
@@ -70,6 +71,7 @@ FIELD_LABELS = {
     "linkedin": "LinkedIn",
     "portfolio": "Portfolio",
     "github": "GitHub",
+    "password": "Password"
 }
 
 FIELD_GROUPS = [
@@ -77,7 +79,7 @@ FIELD_GROUPS = [
     ("Address", ["address", "city", "state", "zipcode", "country"]),
     ("Education", ["school", "degree", "major", "gpa"]),
     ("Experience", ["job_1_desc", "job_2_desc"]),
-    ("Links", ["linkedin", "portfolio", "github"]),
+    ("Links", ["linkedin", "portfolio", "github", "password"]),
 ]
 
 
