@@ -41,12 +41,12 @@ fields = {
     "d": "degree",
     "m": "major",
     "g": "gpa",
-    "1": "job_1_desc",
-    "2": "job_2_desc",
+    "b": "job_1_desc",
+    "k": "job_2_desc",
     "i": "linkedin",
     "w": "portfolio",
     "h": "github",
-    "j": "password"
+    "j": "password",
 }
 
 FIELD_HOTKEY = {field: key for key, field in fields.items()}
